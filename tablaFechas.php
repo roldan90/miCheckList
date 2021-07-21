@@ -29,7 +29,7 @@
             </td>
             <td>
                 <form action="servidor/eliminarFecha.php" method="post">
-                    <input type="text" value="<?php echo $idFecha; ?>" required hidden>
+                    <input type="text" value="<?php echo $idFecha; ?>" name="idEliminar" required hidden>
                     <button class="btn btn-danger">
                         Eliminar
                     </button>
