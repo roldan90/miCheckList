@@ -6,7 +6,7 @@
 <div class="container">
     <div class="card border-0 shadow my-5">
         <div class="card-body p-5">
-            <h1 class="font-weight-light">Agregar listado de tareas</h1>
+            <h1 class="font-weight-light">Agregar listado de tareas de la fecha <?php echo $_GET['fecha']; ?></h1>
             <p class="lead">
                 <div class="row">
                     <div class="col-sm-6">
@@ -26,7 +26,7 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <div id="tablaTareas"></div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
 <?php include "footer.php" ?>
 <script>
     $(document).ready(function(){
-        $('#tablaTareas').load('tablaTareas.php');
+        $('#tablaTareas').load('tablaTareas.php?idFecha=' + '<?php echo $_GET['idFecha'] ?>');
     });
 </script>
 <?php 

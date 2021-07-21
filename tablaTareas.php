@@ -1,7 +1,8 @@
 <?php
+    $idFecha = $_GET['idFecha'];
     include "servidor/conexion.php";
     $conexion = conexion();
-    $sql = "SELECT id_tarea, tarea, estado FROM t_tareas";
+    $sql = "SELECT id_tarea, tarea, estado FROM t_tareas WHERE id_fecha = '$idFecha'";
     $respuesta = mysqli_query($conexion, $sql);
 ?>
 <table class="table">
