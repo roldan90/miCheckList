@@ -24,6 +24,7 @@
                         </form>
                     </div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-sm-6">
                         <div id="tablaTareas"></div>
