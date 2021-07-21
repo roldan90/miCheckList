@@ -1,53 +1,92 @@
-CREATE DATABASE  IF NOT EXISTS `sistemasweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `sistemasweb`;
--- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1    Database: sistemasweb
--- ------------------------------------------------------
--- Server version	5.7.33
+-- Host: localhost:3306
+-- Generation Time: Jul 21, 2021 at 07:06 PM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `sistemasweb`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `t_fechas`
 --
 
-DROP TABLE IF EXISTS `t_fechas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_fechas` (
-  `id_fecha` int(11) NOT NULL AUTO_INCREMENT,
+  `id_fecha` int(11) NOT NULL,
   `fecha` date NOT NULL,
-  `fechaInsert` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_fecha`)
+  `fechaInsert` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `t_fechas`
 --
 
-LOCK TABLES `t_fechas` WRITE;
-/*!40000 ALTER TABLE `t_fechas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `t_fechas` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `t_fechas` (`id_fecha`, `fecha`, `fechaInsert`) VALUES
+(3, '2021-07-21', '2021-07-21 13:44:39');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_tareas`
+--
+
+CREATE TABLE `t_tareas` (
+  `id_tarea` int(11) NOT NULL,
+  `id_fecha` int(11) NOT NULL,
+  `tarea` text NOT NULL,
+  `fechaInsert` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `t_fechas`
+--
+ALTER TABLE `t_fechas`
+  ADD PRIMARY KEY (`id_fecha`);
+
+--
+-- Indexes for table `t_tareas`
+--
+ALTER TABLE `t_tareas`
+  ADD PRIMARY KEY (`id_tarea`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `t_fechas`
+--
+ALTER TABLE `t_fechas`
+  MODIFY `id_fecha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `t_tareas`
+--
+ALTER TABLE `t_tareas`
+  MODIFY `id_tarea` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-07-21 12:11:23
