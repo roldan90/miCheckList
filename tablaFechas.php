@@ -8,16 +8,25 @@
     <thead>
         <th>Id</th>
         <th>Fecha</th>
+        <th>Selecionar</th>
         <th>Eliminar</th>
     </thead>
     <tbody>
         <?php 
         while($mostrar = mysqli_fetch_array($respuesta)){ 
             $idFecha = $mostrar['id_fecha'];
+            $fecha = $mostrar['fecha'];
+            $link = "checkList.php?idFecha=". $idFecha . "&&fecha=" . $fecha;
         ?>
         <tr>
             <td><?php echo $mostrar['id_fecha']; ?></td>
             <td><?php echo $mostrar['fecha']; ?></td>
+            <td>
+                <a href="<?php echo $link; ?>" 
+                    class="btn btn-info">
+                    Seleccionar
+                </a>
+            </td>
             <td>
                 <form action="servidor/eliminarFecha.php" method="post">
                     <input type="text" value="<?php echo $idFecha; ?>" required hidden>
