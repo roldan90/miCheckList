@@ -1,4 +1,3 @@
-
 <?php 
     include "servidor/conexion.php";
     $conexion = conexion();
@@ -14,13 +13,14 @@
     <tbody>
         <?php 
         while($mostrar = mysqli_fetch_array($respuesta)){ 
+            $idFecha = $mostrar['id_fecha'];
         ?>
         <tr>
-            <td></td>
-            <td></td>
+            <td><?php echo $mostrar['id_fecha']; ?></td>
+            <td><?php echo $mostrar['fecha']; ?></td>
             <td>
                 <form action="servidor/eliminarFecha.php" method="post">
-                    <input type="text" value="<?php  ?>" required hidden>
+                    <input type="text" value="<?php echo $idFecha; ?>" required hidden>
                     <button class="btn btn-danger">
                         Eliminar
                     </button>
