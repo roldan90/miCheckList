@@ -1,3 +1,10 @@
+
+<?php 
+    include "servidor/conexion.php";
+    $conexion = conexion();
+    $sql = "SELECT id_fecha, fecha FROM t_fechas";
+    $respuesta = mysqli_query($conexion, $sql);
+?>
 <table class="table" id="tablaListadoFechas">
     <thead>
         <th>Id</th>
@@ -5,6 +12,9 @@
         <th>Eliminar</th>
     </thead>
     <tbody>
+        <?php 
+        while($mostrar = mysqli_fetch_array($respuesta)){ 
+        ?>
         <tr>
             <td></td>
             <td></td>
@@ -17,5 +27,8 @@
                 </form>
             </td>
         </tr>
+        <?php
+        } 
+        ?>
     </tbody>
 </table>
