@@ -15,21 +15,24 @@
     <tbody>
     <?php
         $contador = 1; 
-        while($mostrar = mysqli_fetch_row($respuesta)) {  
+        while($mostrar = mysqli_fetch_array($respuesta)) {  
     ?>
         <tr>
             <td><?php echo $contador ++; ?></td>
-            <td><?php echo $mostrar[1]; ?></td>
+            <td><?php echo $mostrar['tarea']; ?></td>
             <td>
-                <?php if ($mostrar[2] == 0) { ?>
-                    <a class="btn btn-info" href="#">Sin terminar</a>
+                <?php 
+                    if ($mostrar['estado'] == 0) {
+                        $link = "servidor/cambiarEstado.php?idFecha=" . $_GET['idFecha'] . "&&fecha=" . $_GET['fecha'] . "&&estado=";
+                ?>
+                    <a class="btn btn-info" href="<?php echo $link. "0"; ?>">Sin terminar</a>
                 <?php } else { ?>
-                    <a class="btn btn-success" href="#">Terminada</a>
+                    <a class="btn btn-success" href="<?php echo $link. "1"; ?>">Terminada</a>
                 <?php } ?>
             </td>
             <td>
                 <form action="servidor/eliminarTarea.php" method="POST">
-                    <input type="text" hidden value="<?php echo $mostrar[0]; ?>">
+                    <input type="text" hidden value="<?php echo $mostrar['id_tarea']; ?>">
                     <button class="btn btn-danger">Eliminar</button>
                 </form>
             </td>
