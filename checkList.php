@@ -1,12 +1,12 @@
 <?php
-    if (isset($_GET['idFecha']) && isset($_GET['fecha'])) {
-        $link = "servidor/agregarTarea.php?idFecha=" . $_GET['idFecha'] . "&&fecha=" . $_GET['fecha'];
+    if (isset($_GET['idFecha'])) {
+        $link = "servidor/agregarTarea.php?idFecha=" . $_GET['idFecha'];
 ?>
 <?php include "header.php"; ?>
 <div class="container">
     <div class="card border-0 shadow my-5">
         <div class="card-body p-5">
-            <h1 class="font-weight-light">Agregar listado de tareas de la fecha <?php echo $_GET['fecha']; ?></h1>
+            <h1 class="font-weight-light">Agregar listado de tareas</h1>
             <p class="lead">
                 <div class="row">
                     <div class="col-sm-6">

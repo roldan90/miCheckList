@@ -16,7 +16,7 @@
         while($mostrar = mysqli_fetch_array($respuesta)){ 
             $idFecha = $mostrar['id_fecha'];
             $fecha = $mostrar['fecha'];
-            $link = "checkList.php?idFecha=". $idFecha . "&&fecha=" . $fecha;
+            $link = "checkList.php?idFecha=". $idFecha;
         ?>
         <tr>
             <td><?php echo $mostrar['id_fecha']; ?></td>

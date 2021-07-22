@@ -10,7 +10,7 @@
     $respuesta = mysqli_query($conexion, $sql);
 
     if ($respuesta) {
-        $link = "../checkList.php?idFecha=" . $idFecha . "&&fecha=" . $fecha;
+        $link = "../checkList.php?idFecha=" . $idFecha . "&fecha=" . $fecha;
         header("location:" . $link);
     } else {
         echo "No se ha podido agregar la tarea!!!";
