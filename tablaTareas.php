@@ -23,11 +23,11 @@
             <td>
                 <?php 
                     if ($mostrar['estado'] == 0) {
-                        $link = "servidor/cambiarEstado.php?idFecha=" . $_GET['idFecha'] . "&&estado=";
+                        $link = "servidor/cambiarEstado.php?idTarea=" . $mostrar['id_tarea'] . "idFecha=" . $_GET['idFecha'] . "&&estado=";
                 ?>
-                    <a class="btn btn-info" href="<?php echo $link. "0"; ?>">Sin terminar</a>
+                    <a class="btn btn-info" href="<?php echo $link . "1"; ?>">Sin terminar</a>
                 <?php } else { ?>
-                    <a class="btn btn-success" href="<?php echo $link. "1"; ?>">Terminada</a>
+                    <a class="btn btn-success" href="<?php echo $link . "0"; ?>">Terminada</a>
                 <?php } ?>
             </td>
             <td>
