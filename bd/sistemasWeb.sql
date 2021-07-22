@@ -90,6 +90,17 @@ COMMIT;
 ALTER TABLE `sistemasweb`.`t_tareas`
 ADD COLUMN `estado` INT NOT NULL AFTER `tarea`;
 
+ALTER TABLE `sistemasweb`.`t_tareas` 
+ADD INDEX `fktareasFechas_idx` (`id_fecha` ASC);
+;
+ALTER TABLE `sistemasweb`.`t_tareas` 
+ADD CONSTRAINT `fktareasFechas`
+  FOREIGN KEY (`id_fecha`)
+  REFERENCES `sistemasweb`.`t_fechas` (`id_fecha`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

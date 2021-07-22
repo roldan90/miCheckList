@@ -22,8 +22,8 @@
             <td><?php echo $mostrar['tarea']; ?></td>
             <td>
                 <?php 
+                    $link = "servidor/cambiarEstado.php?idTarea=" . $mostrar['id_tarea'] . "&&idFecha=" . $idFecha . "&&estado=";
                     if ($mostrar['estado'] == 0) {
-                        $link = "servidor/cambiarEstado.php?idTarea=" . $mostrar['id_tarea'] . "idFecha=" . $_GET['idFecha'] . "&&estado=";
                 ?>
                     <a class="btn btn-info" href="<?php echo $link . "1"; ?>">Sin terminar</a>
                 <?php } else { ?>
@@ -31,8 +31,8 @@
                 <?php } ?>
             </td>
             <td>
-                <form action="servidor/eliminarTarea.php" method="POST">
-                    <input type="text" hidden value="<?php echo $mostrar['id_tarea']; ?>">
+                <form action="servidor/eliminarTarea.php?idFecha=<?php echo $idFecha; ?>" method="POST">
+                    <input type="text" hidden value="<?php echo $mostrar['id_tarea']; ?>" name="idEliminarTarea">
                     <button class="btn btn-danger">Eliminar</button>
                 </form>
             </td>
